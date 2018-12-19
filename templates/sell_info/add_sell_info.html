@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}安远-坐享脐橙网-脐橙批发{% endblock %}
+{% block content %}
+    <link title="style1" rel="stylesheet" href="{% static 'css/style.css ' %}" type="text/css">
+    <div class="container">
+        <div class="nav"><a href="{% url 'home' %}">首页</a> &gt; <a href="{% url 'sell_info:add_sell_info' %}">我要批发</a></div>
+        <div class="con_jxinf">
+            <div class="title">
+                <div class="clear"></div>
+            </div>
+            <div class="form_content">
+                <form id="test" action="." method="post">{% csrf_token %}
+                    <fieldset>
+                        <legend class="optional">个人信息</legend>
+                        <div class="form-row">
+                            <div class="field-label"><label for="field1">姓名</label></div>
+                            <div class="field-widget">
+                                <input type="text" name="name" maxlength="20" required="" id="id_name" title="请输入姓名" placeholder="请输入您的真实姓名">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="field-label"><label for="field2">联系电话</label></div>
+                            <div class="field-widget">
+                                <input type="text" name="phone" maxlength="20" required="" id="id_phone"  placeholder="请务必确保该电话能联系上您">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="field-label"><label for="field3">家庭住址</label></div>
+                            <div class="field-widget">
+                                <input type="text" name="jiating_address" maxlength="20" required="" id="id_jiating_address"  placeholder="您可以选择性输入住址所在乡镇和村">
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend class="optional">果园信息</legend>
+                        <div class="form-row">
+                            <div class="field-label"><label for="field4">果树数量</label></div>
+                            <div class="field-widget">
+                                <input type="text" name="shuliang" maxlength="20" required="" id="id_shuliang"  placeholder="请填写您的果园果树数量（单位：棵）">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="field-label"><label for="field5">预计产量</label></div>
+                            <div class="field-widget">
+                                <input type="text" name="chanliang" maxlength="20" required="" id="id_chanliang"  placeholder="请您务必填写今年预计产量">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="field-label"><label for="field5">估计平均果径</label></div>
+                            <div class="field-widget">
+                                <input type="text" name="guojin_min" style="width:100px;" maxlength="10" required="" id="id_guojin_min"  placeholder="最小果径">
+                                <label for="field5" style="margin-top: 5px;margin-left: 5px;">厘米&nbsp;&nbsp;—</label>
+                                <input type="text" name="guojin_max" style="width:100px;margin-left: 15px;" maxlength="10" required="" id="id_guojin_max"  placeholder="最大果径">
+                                <label for="field5" style="margin-top: 5px;margin-left: 5px;">厘米</label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="field-label"><label for="field5">果园地址</label></div>
+                            <div class="field-widget">
+                                <input type="text" name="guoyuan_address" maxlength="20" required="" id="id_guoyuan_address"  placeholder="请填写您的果园详细地址">
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend class="optional">其他信息</legend>
+                        <div class="form-row">
+                            <div class="field-label">
+                                <div class="field-widget">
+                                    <textarea name="qita" cols="87" rows="10" id="id_qita" placeholder="您可以在这里输入您对果园的其他描述信息或者对水果商的一些特殊要求"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <input type="submit" class="submit" value="提交" />
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

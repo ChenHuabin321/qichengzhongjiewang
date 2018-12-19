@@ -1,0 +1,15 @@
+{% load staticfiles %}
+<div class="headbg">
+  <div class="header">
+    <div class="clear"></div>
+    <img class="logo" src="{% static '/images/logo.png' %}" alt="" title="" />
+    <ul class="topnav">
+      <li class="topseled"><a href="{% url 'home' %}">首页</a></li>
+      <li class="topseled"><a href="{% url 'sell_info:sell_info_page' %}">脐橙批发</a></li>
+      <li class="topseled"><a href="{% url 'xuqiu_info:xuqiu_info_page' %}">脐橙采购</a></li>
+      <li class="topseled"><a href="buy.html">中间产品</a></li>
+      <li class="topseled"><a href="{% url 'about_us' %}">关于我们</a></li>
+    </ul>
+    <div class="clear"></div>
+  </div>
+</div>

@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}安远-坐享脐橙网-脐橙批发{% endblock %}
+{% block content %}
+    <link title="style1" rel="stylesheet" href="{% static 'css/style.css ' %}" type="text/css">
+    <link title="style2" rel="stylesheet" href="{% static 'css/bootstrap.css ' %}" type="text/css">
+{#    <link title="style3" rel="stylesheet" href="{% static 'css/bootstrap-datetimepicker.min.css' %}">#}
+{#    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>#}
+{#    <script src="{% static 'js/bootstrap.js' %}"></script>#}
+{#    <script src="{% static 'js/bootstrap-datetimepicker.js' %}"></script>#}
+{#    <script src="{% static 'js/bootstrap-datepicker.zh-CN.js' %}"></script>#}
+    <div class="container">
+        <div class="nav"><a href="{% url 'home' %}">首页</a> &gt; <a href="{% url 'xuqiu_info:add_xuqiu_info' %}">我要采购</a></div>
+        <div class="con_jxinf">
+            <div class="title_caigou">
+                <div class="clear"></div>
+            </div>
+            <div class="form_content">
+                <form id="test" action="." method="post">{% csrf_token %}
+                    <fieldset>
+                        <legend class="optional">个人信息</legend>
+                        <div class="form-row">
+                            <div class="field-label"><label for="field1">姓名</label></div>
+                            <div class="field-widget">
+                                <input type="text" name="name" maxlength="10"  id="id_name" placeholder="请输入您的真实姓名">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="field-label"><label for="field2">联系电话</label></div>
+                            <div class="field-widget">
+                                <input type="text" name="phone" maxlength="15" required="" id="id_phone" placeholder="请务必确保该电话能联系上您">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="field-label"><label for="field3">家庭住址</label></div>
+                            <div class="field-widget">
+                                <input type="text" name="jiating_address" maxlength="50" required="" id="id_jiating_address"  placeholder="您可以选择性输入您的家庭所在省市">
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend class="optional">采购信息</legend>
+                        <div class="form-row">
+                            <div class="field-label"><label for="field4">需求量</label></div>
+                            <div class="field-widget">
+                                <input type="text" name="xuqiuliang" maxlength="10" required="" id="id_xuqiuliang" placeholder="您需要采购的脐橙总量，单位：斤">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="field-label"><label for="field5">采摘日期</label></div>
+                            <div class="field-widget">
+                                <input type="date" name="caizhairiqi" maxlength="20" required="" id="id_caizhairiqi" value = "2018-09-01 20:00" placeholder="请输入您期望的采摘日期">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="field-label"><label for="field5">期望果径</label></div>
+                            <div class="field-widget">
+                                <input type="text" name="guojin_min" style="width:100px;" maxlength="10" required="" id="id_guojin_min" placeholder="最小果径">
+                                <label for="field5" style="margin-top: 5px;margin-left: 5px;">厘米&nbsp;&nbsp;—</label>
+                                <input type="text" name="guojin_max" style="width:100px;margin-left: 15px;" maxlength="10" required="" id="id_guojin_max" placeholder="最大果径">
+                                <label for="field5" style="margin-top: 5px;margin-left: 5px;">厘米</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend class="optional">其他信息</legend>
+                        <div class="form-row">
+                            <div class="field-label">
+                                <div class="field-widget" >
+                                    <textarea name="qita" rows="5" id="id_qita"  placeholder="您可以在这里输入一些其他需求信息"></textarea>
+                                </div>
+
+                            </div>
+                        </div>
+                    </fieldset>
+                    <input type="submit" class="submit" value="提交" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $("#id_caizhairiqi").datetimepicker({
+                format: 'YYYY-MM-DD hh:mm',
+                locale: moment.locale('zh-cn')
+            });
+        });
+    </script>
+{% endblock %}
